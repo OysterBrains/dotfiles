@@ -2,10 +2,10 @@
 #####Setup script for laptop i3
 
 #####basic setups--drivers, sound, etc. 
-apt-get install software-properties-common
-add-apt-repository ppa:apt-fast/stable
-apt-get install apt-fast
-apt-fast install network-manager ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:apt-fast/stable
+apt-get install -y apt-fast
+apt-fast install -y network-manager ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 systemctl disable systemd-networkd-wait-online.service
@@ -21,8 +21,8 @@ mkdir .config
 mkdir .fonts
 mkdir Music
 
-#####install i3-gaps devlibs, compile, then remove devlibs
-apt-fast install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev
+#####install i3-gaps, accessories & devlibs, then compile
+apt-fast install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev suckless-tools i3status i3blocks i3lock
 cd ~ && mkdir Git
 cd Git
 git clone https://www.github.com/Airblader/i3 i3-gaps
@@ -35,9 +35,6 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc
 make
 sudo make install
-
-#####install i3 peripherals
-apt-fast install suckless-tools i3status i3blocks i3lock
 
 #####install lightdm, gtk-greeter & mini-greeter
 apt-fast install lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
