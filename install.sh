@@ -37,7 +37,7 @@ make
 sudo make install
 
 #####install lightdm, gtk-greeter & mini-greeter
-apt-fast install lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
+apt-fast install -y lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
 cd ~/Git
 git clone https://github.com/josephsurin/lightdm-mini-greeter
 cd lightdm-mini-greeter
@@ -47,7 +47,7 @@ make
 sudo make install
 
 #####Install X utilities
-apt-fast install xinit xorg xserver-xorg
+apt-fast install -y xinit xorg xserver-xorg
 
 ###### Get and install San Francisco Font
 #cd ~/Git 
@@ -63,8 +63,8 @@ apt-fast install xinit xorg xserver-xorg
 
 ###### Get and install Moka icon theme
 #add-apt-repository ppa:moka/daily -y
-#apt-get update
-#apt-get install -y moka-icon-theme
+#apt-fast update
+#apt-fast install -y moka-icon-theme
 
 #####Install Numix icon theme
 #apt-fast install numix-icon-theme numix-icon-theme-square numix-icon-theme-circle
