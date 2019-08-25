@@ -1,11 +1,11 @@
 #!/bin/bash
-#####Setup script for laptop i3
+#####setup script for laptop i3
 
 #####basic setups--drivers, sound, etc. 
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:apt-fast/stable
 apt-get install -y apt-fast
-apt-fast install -y network-manager tmux xterm ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
+apt-fast install -y network-manager tmux xterm suckless-tools ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 systemctl disable systemd-networkd-wait-online.service
@@ -20,6 +20,10 @@ mkdir Videos
 mkdir .config
 mkdir .fonts
 mkdir Music
+
+#####copy wallpaper to Pictures dir
+cd ~/Git/dotfiles
+cp wallpaper.jpg ~/Pictures
 
 #####install i3-gaps source & devlibs, then compile
 apt-fast install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev
@@ -46,5 +50,14 @@ cd lightdm-mini-greeter
 make
 sudo make install
 
-#####Install X utilities
+#####copy .conf files to correct locations
+cd ~/Git/dotfiles
+cp lightdm.conf /etc/lightdm
+cp lightdm-mini-greeter.conf /etc/lightdm
+cp ubuntu.desktop /usr/share/xsessions
+cp .tmux.conf ~
+cp .dmrc ~
+
+#####install X utilities
 apt-fast install -y xinit xorg xserver-xorg
+reboot
