@@ -21,8 +21,8 @@ mkdir .config
 mkdir .fonts
 mkdir Music
 
-#####install i3-gaps, accessories & devlibs, then compile
-apt-fast install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev suckless-tools i3status i3blocks i3lock
+#####install i3-gaps source & devlibs, then compile
+apt-fast install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev
 cd ~ && mkdir Git
 cd Git
 git clone https://www.github.com/Airblader/i3 i3-gaps
@@ -35,6 +35,11 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc
 make
 sudo make install
+
+#####Install i3 peripherals
+apt-fast install -y suckless-tools i3status i3blocks i3lock
+add-apt-reposity -y ppa:kgilmer/speed-ricer
+apt-fast install -y polybar
 
 #####install lightdm, gtk-greeter & mini-greeter
 apt-fast install -y lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
@@ -66,17 +71,17 @@ apt-fast install -y xinit xorg xserver-xorg
 #apt-fast update
 #apt-fast install -y moka-icon-theme
 
-#####Install Numix icon theme
-#apt-fast install numix-icon-theme numix-icon-theme-square numix-icon-theme-circle
-
-#####Install Numix cursor theme
+#####Install Numix stuff
+#apt-fast install -y numix-icon-theme numix-icon-theme-square numix-icon-theme-circle numix-gtk-theme
 #cd ~/Git
+#git clone https://github.com/numixproject/numix-folders
 #wget https://github.com/numixproject/numix-cursor-theme/releases/download/v1.1/numix-cursor-1.1.tar
-
-#cp Numix-Cursor /usr/
+#tar -xf numix-cursor-1.1.tar
+#cp Numix-Cursor /usr/share/icons
+#cp Numix-Cursor-Light /usr/share/icons
 
 #####Clean up and remove unneeded libs/utils
-#apt-fast remove libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev
+#apt-fast remove -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev
 #apt-fast clean
 #apt-fast autoclean
 #apt-fast autoremove
