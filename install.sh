@@ -17,7 +17,6 @@ mkdir Documents
 mkdir Downloads
 mkdir Pictures
 mkdir Videos
-mkdir .config
 mkdir .fonts
 mkdir Music
 
@@ -39,6 +38,11 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc
 make
 sudo make install
+
+#####install i3 peripherals
+apt-fast -y install i3status i3blocks i3lock
+add-apt-repository ppa:kgilmer/speed-ricer
+apt-fast -y install polybar
 
 #####install lightdm, gtk-greeter & mini-greeter
 apt-fast install -y lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
