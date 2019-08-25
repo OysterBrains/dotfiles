@@ -44,7 +44,7 @@ apt-fast install -y polybar
 #####install lightdm, gtk-greeter & mini-greeter
 apt-fast install -y lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
 cd ~/Git
-git clone https://github.com/josephsurin/lightdm-mini-greeter
+git clone https://github.com/prikhi/lightdm-mini-greeter
 cd lightdm-mini-greeter
 ./autogen.sh
 ./configure --datadir /usr/share --bindir /usr/bin --sysconfdir /etc
