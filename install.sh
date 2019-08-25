@@ -52,7 +52,7 @@ make
 sudo make install
 
 #####Install X utilities
-apt-fast install -y xinit xorg xserver-xorg
+apt-fast install -y xinit xorg xserver-xorg xterm tmux
 
 ###### Get and install San Francisco Font
 #cd ~/Git 
