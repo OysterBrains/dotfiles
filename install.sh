@@ -5,7 +5,7 @@
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:apt-fast/stable
 apt-get install -y apt-fast
-apt-fast install -y network-manager tmux xterm suckless-tools ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
+apt-fast install -y network-manager tmux xterm suckless-tools udisks2 ubuntu-drivers-common mesa-utils mesa-utils-extra intel-microcode alsa-utils lxappearance gtk-chtheme compton
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 systemctl disable systemd-networkd-wait-online.service
@@ -64,7 +64,7 @@ cp .dmrc ~
 cp .xinitrc ~
 
 #####install X utilities
-apt-fast install -y xinit xorg xserver-xorg
+apt-fast install -y xinit xorg xserver-xorg xserver-xorg-input-synaptics
 
 #####clean up unneeded libs/utils
 apt-fast clean
