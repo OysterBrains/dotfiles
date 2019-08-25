@@ -61,12 +61,12 @@ cp lightdm-mini-greeter.conf /etc/lightdm
 cp ubuntu.desktop /usr/share/xsessions
 cp .tmux.conf ~
 cp .dmrc ~
+cp .xinitrc ~
 
 #####install X utilities
 apt-fast install -y xinit xorg xserver-xorg
 
 #####clean up unneeded libs/utils
-#apt-fast remove -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev
 apt-fast clean
 apt-fast autoclean
 apt-fast autoremove
