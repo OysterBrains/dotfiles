@@ -38,7 +38,7 @@ sudo make install
 
 #####Install i3 peripherals
 apt-fast install -y suckless-tools i3status i3blocks i3lock
-add-apt-reposity -y ppa:kgilmer/speed-ricer
+add-apt-repository -y ppa:kgilmer/speed-ricer
 apt-fast install -y polybar
 
 #####install lightdm, gtk-greeter & mini-greeter
