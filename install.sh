@@ -25,24 +25,22 @@ cd ~/Git/dotfiles
 cp wallpaper.jpg ~/Pictures
 
 #####install i3-gaps source & devlibs, then compile
-apt-fast install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxcb-xrm-dev libxkbcommon-x11-dev autoconf xutils-dev libtool libxcb-shape0-dev
-cd ~ && mkdir Git
+add-apt-repository ppa:aguignard/ppa
+apt-fast install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev
 cd Git
 git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps
-git checkout gaps && git pull
 autoreconf --force --install
-rm -rf build
-mkdir build
-cd build
-../configure --prefix=/usr --sysconfdir=/etc
+rm -rf build/
+mkdir -p build && cd build/
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
 
 #####install i3 peripherals
-apt-fast -y install i3status i3blocks i3lock
-add-apt-repository -y ppa:kgilmer/speed-ricer
-apt-fast -y install polybar
+#apt-fast -y install i3status i3blocks i3lock
+#add-apt-repository -y ppa:kgilmer/speed-ricer
+#apt-fast -y install polybar
 
 #####install lightdm, gtk-greeter & mini-greeter
 apt-fast install -y lightdm libgtk-3-dev automake pkg-config liblightdm-gobject-1-dev lightdm-gtk-greeter lightdm-gtk-greeter-settings 
