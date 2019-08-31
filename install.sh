@@ -67,6 +67,15 @@ apt-fast install -y xinit xorg xserver-xorg xserver-xorg-input-synaptics
 apt-fast install nitrogen
 nitrogen --set-auto ~/Pictures/wallpaper.jpg
 
+#####install gotop
+apt-fast install golang-go
+go get github.com/cjbassi/gotop
+cd ~/go/src/github.com/cjbassi/gotop
+go build
+cp gotop /usr/bin
+cd ~ && rm -rf go
+apt-fast remove golang-go
+
 #####clean up unneeded libs/utils
 apt-fast clean
 apt-fast autoclean
